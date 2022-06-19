@@ -18,8 +18,8 @@ import java.util.Optional;
 @RequestMapping("/products")
 @RequiredArgsConstructor
 @Validated
-//@CrossOrigin("http://labvm-42-05.itmo-lab.cosm-lab.science")
-@CrossOrigin("localhost:4200")
+@CrossOrigin("http://labvm-42-05.itmo-lab.cosm-lab.science")
+//@CrossOrigin("localhost:4200")
 public class ProductController {
 
     private final ProductService productService;
