@@ -49,8 +49,3 @@ services:
       - "1936:1936"
     depends_on:
       - consul
-
-#networks:
-#  default:
-#    name: "ihatetm"
-#    external: true
