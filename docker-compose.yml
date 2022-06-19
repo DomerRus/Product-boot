@@ -1,0 +1,56 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:13
+    restart: unless-stopped
+    networks:
+      - default
+    environment:
+      POSTGRES_PASSWORD: 896699
+      POSTGRES_USER: postgres
+    volumes:
+      - ./db/db-data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+  backend:
+    image: ityce4ka/spring-boot
+    networks:
+      - default
+    links:
+      - db:db
+      - consul:consul
+    environment:
+      DB_HOST: "db"
+      DB_USER: "postgres"
+      DB_PASS: "896699"
+      DB_PORT: "5432"
+      CONSUL_URL: "consul"
+      CONSUL_PORT: "8500"
+    ports:
+      - "8082:8082"
+
+  consul:
+    image: consul
+    networks:
+      - default
+    ports:
+      - "8500:8500"
+      - "8600:8600/udp"
+
+  haproxy:
+    image: haproxy
+    networks:
+      - default
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy
+    ports:
+      - "8080:8080"
+      - "1936:1936"
+    depends_on:
+      - consul
+
+#networks:
+#  default:
+#    name: "ihatetm"
+#    external: true
