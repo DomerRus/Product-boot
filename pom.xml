@@ -101,7 +101,7 @@
                 <version>3.2.1</version>
                 <configuration>
                     <from>
-                        <image>openjdk:17-slim-buster</image>
+                        <image>openjdk:11-jre-slim</image>
                         <auth>
                             <username>ityce4ka</username>
                             <password>${env.DOCKER_TOKEN}</password>
