@@ -1,6 +1,7 @@
 package ru.itmo.productboot.web;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +22,14 @@ import java.util.Optional;
 @CrossOrigin("*")
 //@CrossOrigin("http://labvm-42-05.itmo-lab.cosm-lab.science")
 //@CrossOrigin("localhost:4200")
+@Slf4j
 public class ProductController {
 
     private final ProductService productService;
 
     @GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getProducts() {
+        log.info("Я тут");
         Optional<List<Product>> products = productService.getProducts();
         if(products.get().size()>0) {
             return products
