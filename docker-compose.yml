@@ -28,7 +28,7 @@ services:
       DB_PASS: "896699"
       DB_PORT: "5432"
       CONSUL_URL: "consul"
-      CONSUL_PORT: "9098"
+      CONSUL_PORT: "8500"
     ports:
       - "8082-8083:8082"
 
