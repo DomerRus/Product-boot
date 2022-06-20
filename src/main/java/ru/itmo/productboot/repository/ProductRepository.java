@@ -12,6 +12,6 @@ public interface ProductRepository extends JpaRepository<Product,Integer> {
     void deleteAllByUnitOfMeasure(UnitOfMeasure unitOfMeasure);
     List<Product> findAllByManufacturer_Id(Integer id);
 
-    @Query(value = "SELECT DISTINCT ON (manufacturecost) * FROM product", nativeQuery = true)
+    @Query(value = "SELECT DISTINCT ON (manufacturecost) * FROM products", nativeQuery = true)
     List<Product> findDistinctByManufactureCost();
 }
