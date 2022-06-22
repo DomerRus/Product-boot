@@ -108,7 +108,7 @@
                         </auth>
                     </from>
                     <to>
-                        <image>docker.io/ityce4ka/spring-boot:11</image>
+                        <image>docker.io/ityce4ka/spring-boot</image>
                         <auth>
                             <username>ityce4ka</username>
                             <password>${env.DOCKER_TOKEN}</password>
